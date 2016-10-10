@@ -3,4 +3,4 @@ before_script:
 
 build_image:
   script:
-    - docker build -t promet-server .
+    - docker build -t promet-client .
