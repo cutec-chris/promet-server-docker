@@ -727,7 +727,7 @@
 
   # end of the example
 -->
-  <application class="xclipboard" type="normal">
+  <application name="xclipboard" type="normal">
     <decor>no</decor>
     <maximized>false</maximized>
     <minimized>true</minimized>
