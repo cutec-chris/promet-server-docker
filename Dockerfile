@@ -29,7 +29,7 @@ apt-get update
 
 # Installing packages
 RUN apt-get install wget sqlite3 -y
-RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgdk-pixbuf2.0-common -y
+RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgdk-pixbuf2.0-common libgtk2.0-0 -y
 RUN wget http://downloads.free-erp.de/promet-erp_7.0.432_amd64-gtk2.deb && dpkg -i promet-erp_7.0.432_amd64-gtk2.deb && rm promet-erp_7.0.432_amd64-gtk2.deb
 RUN apt-get clean && apt-get autoremove -y
 
