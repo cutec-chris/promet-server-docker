@@ -37,5 +37,6 @@ RUN apt-get clean && apt-get autoremove -y
 COPY startapp.sh /startapp.sh
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
 RUN chmod +x /etc/my_init.d/firstrun.sh 
+RUN mkdir /srv/promet
 EXPOSE 3389 8080
 VOLUME ["/srv/promet", "/var/log"]
