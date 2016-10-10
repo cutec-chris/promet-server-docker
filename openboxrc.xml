@@ -727,6 +727,10 @@
 
   # end of the example
 -->
+  <application class="*" type="normal">
+    <decor>yes</decor>
+    <maximized>false</maximized>
+  </application>
   <application name="xclipboard" type="normal">
     <decor>no</decor>
     <maximized>false</maximized>
@@ -735,10 +739,6 @@
   <application title="*Promet-ERP" type="normal">
     <decor>no</decor>
     <maximized>true</maximized>
-  </application>
-  <application class="*" type="normal">
-    <decor>yes</decor>
-    <maximized>false</maximized>
   </application>
 </applications>
 
