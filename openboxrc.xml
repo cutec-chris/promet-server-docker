@@ -728,7 +728,7 @@
   # end of the example
 -->
   <application class="*" type="normal">
-    <decor>yes</decor>
+    <decor>no</decor>
     <maximized>true</maximized>
   </application>
 </applications>
