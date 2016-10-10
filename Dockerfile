@@ -36,7 +36,6 @@ RUN apt-get clean && apt-get autoremove -y
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
-COPY /src/jd2.tar /nobody/jd2.tar
 RUN chmod +x /etc/my_init.d/firstrun.sh 
 EXPOSE 80
 VOLUME ["/srv/promet", "/var/log"]
