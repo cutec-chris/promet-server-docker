@@ -727,6 +727,11 @@
 
   # end of the example
 -->
+  <application class="xclipboard" type="normal">
+    <decor>no</decor>
+    <maximized>false</maximized>
+    <minimized>true</minimized>
+  </application>
   <application class="prometerp" type="normal">
     <decor>no</decor>
     <maximized>true</maximized>
