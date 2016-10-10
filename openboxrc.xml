@@ -727,6 +727,10 @@
 
   # end of the example
 -->
+  <application class="prometerp" type="normal">
+    <decor>no</decor>
+    <maximized>true</maximized>
+  </application>
   <application class="*" type="normal">
     <decor>yes</decor>
     <maximized>false</maximized>
