@@ -734,7 +734,7 @@
   <application name="xclipboard" type="normal">
     <decor>no</decor>
     <maximized>false</maximized>
-    <minimized>true</minimized>
+    <iconic>yes</iconic>
   </application>
   <application title="*Promet-ERP" type="normal">
     <decor>no</decor>
