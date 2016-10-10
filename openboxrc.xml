@@ -732,7 +732,7 @@
     <maximized>false</maximized>
     <minimized>true</minimized>
   </application>
-  <application name="*romet*" type="normal">
+  <application title="*Promet-ERP" type="normal">
     <decor>no</decor>
     <maximized>true</maximized>
   </application>
