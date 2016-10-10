@@ -729,7 +729,7 @@
 -->
   <application class="*" type="normal">
     <decor>yes</decor>
-    <maximized>true</maximized>
+    <maximized>false</maximized>
   </application>
 </applications>
 
