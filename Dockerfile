@@ -44,6 +44,5 @@ COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
 RUN mkdir /srv/promet
 RUN chmod 777 /srv/promet
-RUN chown nobody:users /srv/promet
 EXPOSE 3389 8080
 VOLUME ["/srv/promet", "/var/log"]
