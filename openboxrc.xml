@@ -49,7 +49,7 @@
 </placement>
 
 <theme>
-  <name>Openbox</name>
+  <name>Light</name>
   <titleLayout>NLIMC</titleLayout>
   <!--
       available characters are NDSLIMC, each can occur at most once.
