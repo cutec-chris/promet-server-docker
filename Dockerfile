@@ -30,6 +30,9 @@ RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane lxappear
 RUN wget http://downloads.free-erp.de/promet-erp_7.0.432_amd64-gtk2.deb && dpkg -i promet-erp_7.0.432_amd64-gtk2.deb && rm promet-erp_7.0.432_amd64-gtk2.deb
 RUN apt-get clean && apt-get autoremove -y
 
+RUN usermod -a -G adm,sudo,fuse nobody
+RUN chown -R nobody:users /nobody/ 
+ 
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
