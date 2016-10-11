@@ -29,7 +29,7 @@ apt-get update
 
 # Installing packages
 RUN apt-get install wget sqlite3 -y
-RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane xterm gtk2-engines lxappearance -y
+RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane -y
 RUN wget http://downloads.free-erp.de/promet-erp_7.0.432_amd64-gtk2.deb && dpkg -i promet-erp_7.0.432_amd64-gtk2.deb && rm promet-erp_7.0.432_amd64-gtk2.deb
 RUN apt-get clean && apt-get autoremove -y
 
@@ -37,9 +37,13 @@ RUN apt-get clean && apt-get autoremove -y
 COPY startapp.sh /startapp.sh
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
 RUN chmod +x /etc/my_init.d/firstrun.sh 
+RUN mkdir /nobody/.config/gtk-3.0/
+RUN chown nobody:users /nobody/.config/gtk-3.0
+COPY gtk3settings.ini /nobody/.config/gtk-3.0/settings.ini
 COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
 RUN mkdir /srv/promet
 RUN chmod 777 /srv/promet
+RUN chown nobody:users /srv/promet
 EXPOSE 3389 8080
 VOLUME ["/srv/promet", "/var/log"]
