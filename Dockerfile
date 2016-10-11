@@ -42,5 +42,8 @@ RUN chown nobody:users /nobody/.config/gtk-3.0
 COPY gtk3settings.ini /nobody/.config/gtk-3.0/settings.ini
 COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
+RUN mkdir /srv/promet
+RUN chown nobody:users /srv/promet
+RUN chmod 777 /srv/promet
 EXPOSE 3389 8080
 VOLUME ["/srv/promet", "/var/log"]
