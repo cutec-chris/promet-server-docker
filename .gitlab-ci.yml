@@ -4,4 +4,7 @@ before_script:
 build_image:
   script:
     - docker build -t promet-client .
-    - docker rmi $(docker images | grep "^<none>" | awk "{print $3}") 
+cleanup:
+  script:
+    - docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
+  allow_fail    
