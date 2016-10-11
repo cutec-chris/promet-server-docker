@@ -40,6 +40,9 @@ RUN chmod +x /etc/my_init.d/firstrun.sh
 RUN mkdir /nobody/.config/gtk-3.0/
 RUN chown nobody:users /nobody/.config/gtk-3.0
 COPY gtk3settings.ini /nobody/.config/gtk-3.0/settings.ini
+RUN chown nobody:users /nobody/.config/gtk-3.0/settings.ini
+COPY gtk3settings.ini /nobody/.gtkrc-2.0
+RUN chown nobody:users /nobody/.gtkrc-2.0
 COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
 RUN mkdir /srv/promet
