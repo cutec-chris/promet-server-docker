@@ -7,4 +7,4 @@ build_image:
 cleanup:
   script:
     - docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
-  allow_fail    
+  allow_failure: true  
