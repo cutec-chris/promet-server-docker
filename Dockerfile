@@ -49,6 +49,6 @@ RUN chmod 777 /srv
 RUN mkdir -p /srv/promet
 RUN chmod 777 /srv/promet
 EXPOSE 3389 8080
-
+USER root
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
