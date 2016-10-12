@@ -2,8 +2,8 @@ FROM hurricane/dockergui:x11rdp1.3
 MAINTAINER Christian U. <github.c@ullihome.de>
 
 # User/Group Id gui app will be executed as default are 99 and 100
-ENV USER_ID=0
-ENV GROUP_ID=0
+ENV USER_ID=99
+ENV GROUP_ID=100
 
 # Gui App Name default is "GUI_APPLICATION"
 ENV APP_NAME="Promet-ERP"
@@ -27,7 +27,7 @@ echo "nobody  ALL=(ALL)   NOPASSWD: ALL" >> /etc/sudoers
 
 # Installing packages
 RUN apt-get install wget sqlite3 -y
-RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane lxappearance xterm -y
+RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane lxappearance -y
 RUN wget http://downloads.free-erp.de/promet-erp_7.0.432_amd64-gtk2.deb && dpkg -i promet-erp_7.0.432_amd64-gtk2.deb && rm promet-erp_7.0.432_amd64-gtk2.deb
 RUN apt-get clean && apt-get autoremove -y
 
