@@ -11,15 +11,12 @@ Persist Data
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
+    - [Available Configuration Parameters](#available-configuration-parameters)
     - [Data Store](#data-store)
     - [Database](#database)
         - [PostgreSQL (Recommended)](#postgresql)
             - [External PostgreSQL Server](#external-postgresql-server)
             - [Linking to PostgreSQL Container](#linking-to-postgresql-container)
-        - [MySQL](#mysql)
-            - [Internal MySQL Server](#internal-mysql-server)
-            - [External MySQL Server](#external-mysql-server)
-            - [Linking to MySQL Container](#linking-to-mysql-container)
 
 # Introduction
 
@@ -138,8 +135,7 @@ docker run --name gitlab -d \
     cutec/promet-client:latest
 ```
 
-### MySQL
-
+##Configuration
 
 ### Available Configuration Parameters
 
