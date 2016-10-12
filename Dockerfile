@@ -22,7 +22,8 @@ mkdir -p /etc/my_init.d && \
 
 # Install packages needed for app
 export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
-apt-get update
+apt-get update && \
+echo "nobody  ALL=(ALL)   NOPASSWD: ALL" >> /etc/sudoers
 
 # Installing packages
 RUN apt-get install wget sqlite3 -y
@@ -50,6 +51,5 @@ RUN chmod 777 /srv
 RUN mkdir -p /srv/promet
 RUN chmod 777 /srv/promet
 EXPOSE 3389 8080
-USER root
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
