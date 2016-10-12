@@ -32,6 +32,7 @@ RUN apt-get clean && apt-get autoremove -y
 
 RUN usermod -a -G adm,sudo,fuse nobody
 RUN chown -R nobody:users /nobody/ 
+RUN chown -R nobody:users /srv/ 
  
 # Copy X app start script to right location
 COPY startapp.sh /startapp.sh
