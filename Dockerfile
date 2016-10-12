@@ -39,6 +39,7 @@ RUN chown -R nobody:users /srv/
 COPY startapp.sh /startapp.sh
 COPY firstrun.sh /etc/my_init.d/firstrun.sh
 RUN chmod +x /etc/my_init.d/firstrun.sh 
+# Fix gtk settings to show an correct theme
 RUN mkdir -p /nobody/.config/gtk-3.0/
 RUN chown nobody:users /nobody/.config/gtk-3.0
 COPY gtk3settings.ini /nobody/.config/gtk-3.0/settings.ini
@@ -47,9 +48,6 @@ COPY gtk3settings.ini /nobody/.gtkrc-2.0
 RUN chown nobody:users /nobody/.gtkrc-2.0
 COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
-RUN chmod 777 /srv
-RUN mkdir -p /srv/promet
-RUN chmod 777 /srv/promet
 EXPOSE 3389 8080
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
