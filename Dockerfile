@@ -8,3 +8,4 @@ ENV APP_NAME="Promet-ERP"
 # Default resolution, change if you like
 ENV WIDTH=1280
 ENV HEIGHT=720
+RUN \
