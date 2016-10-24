@@ -5,3 +5,6 @@ ENV USER_ID=99
 ENV GROUP_ID=100
 # Gui App Name default is "GUI_APPLICATION"
 ENV APP_NAME="Promet-ERP"
+# Default resolution, change if you like
+ENV WIDTH=1280
+ENV HEIGHT=720
