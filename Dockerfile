@@ -42,3 +42,4 @@ RUN chown nobody:users /nobody/.gtkrc-2.0
 COPY openboxrc.xml /nobody/.config/openbox/rc.xml
 RUN chown nobody:users /nobody/.config/openbox/rc.xml
 EXPOSE 3389 8080
+CMD ["/sbin/my_init"]
