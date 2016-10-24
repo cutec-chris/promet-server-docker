@@ -27,3 +27,8 @@ RUN apt-get clean && apt-get autoremove -y
 RUN usermod -a -G adm,sudo,fuse nobody
 RUN chown -R nobody:users /nobody/
 RUN chown -R nobody:users /srv/
+
+# Copy X app start script to right location
+COPY startapp.sh /startapp.sh
+COPY firstrun.sh /etc/my_init.d/firstrun.sh
+RUN chmod +x /etc/my_init.d/firstrun.sh
