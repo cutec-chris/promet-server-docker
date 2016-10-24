@@ -11,3 +11,19 @@ ENV HEIGHT=720
 RUN \
 echo "deb http://archive.ubuntu.com/ubuntu trusty main universe restricted" > /etc/apt/sources.list && \
 echo "deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted" >> /etc/apt/sources.list && \
+mkdir -p /etc/my_init.d && \
+
+# Install packages needed for app
+export DEBCONF_NONINTERACTIVE_SEEN=true DEBIAN_FRONTEND=noninteractive && \
+apt-get update && \
+echo "nobody ALL=(ALL)	NOPASSWD: ALL" >> /etc/sudoers
+
+# Installing packages
+RUN apt-get install wget sqlite3 lxappearance -y
+RUN apt-get install libfreetype6 libdbus-1-3 bsdiff libgtk2.0-0 libsane -y
+RUN wget http://downloads.free-erp.de/promet-erp_P7.0.433_amd64-gtk2.deb && dpkg -i promet-erp_P7.0.433_amd64-gtk2.deb && rm promet-erp_P7.0.433_amd64-gtk2.deb
+RUN apt-get clean && apt-get autoremove -y
+
+RUN usermod -a -G adm,sudo,fuse nobody
+RUN chown -R nobody:users /nobody/
+RUN chown -R nobody:users /srv/
