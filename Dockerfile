@@ -9,3 +9,5 @@ ENV APP_NAME="Promet-ERP"
 ENV WIDTH=1280
 ENV HEIGHT=720
 RUN \
+echo "deb http://archive.ubuntu.com/ubuntu trusty main universe restricted" > /etc/apt/sources.list && \
+echo "deb http://archive.ubuntu.com/ubuntu trusty-updates main universe restricted" >> /etc/apt/sources.list && \
