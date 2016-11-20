@@ -6,15 +6,13 @@ build_image:
     - docker build -t promet-client .
 
 update_remote:
+  variables:
+    REPO_NAME: "promet-client-docker"
   script:
-    - cat ~/.ssh/id_rsa.pub
-#    - echo "machine github.com" > ~/.netrc
-#    - echo "        login $" >> ~/.netrc
-#    - echo "machine github.com" >> ~/.netrc
     - cd $HOME
-    - rm -rf promet-client-docker.git    
-    - git clone --bare http://192.168.177.120:10080/promet/promet-client-docker.git
-    - cd promet-client-docker.git
-    - git push --mirror git@github.com:cutec-chris/promet-client-docker.git
+    - rm -rf $REPO_NAME.git    
+    - git clone --bare http://192.168.177.120:10080/promet/$REPO_NAME.git
+    - cd $REPO_NAME.git
+    - git push --mirror git@github.com:cutec-chris/$REPO_NAME.git
     - cd ..
-    - rm -rf promet-client-docker.git
+    - rm -rf $REPO_NAME.git
