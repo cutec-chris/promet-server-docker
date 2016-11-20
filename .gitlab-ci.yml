@@ -8,8 +8,8 @@ build_image:
 update_remote:
   script:
     - cd $HOME
-$   - git clone --bare http://192.168.177.120:10080/promet/promet-client-docker.git
-$   - cd promet-client-docker.git
-$   - git push --mirror https://github.com/cutec-chris/promet-client-docker.git
-$   - cd ..
-$   - rm -rf promet-client-docker.git
+    - git clone --bare http://192.168.177.120:10080/promet/promet-client-docker.git
+    - cd promet-client-docker.git
+    - git push --mirror https://github.com/cutec-chris/promet-client-docker.git
+    - cd ..
+    - rm -rf promet-client-docker.git
