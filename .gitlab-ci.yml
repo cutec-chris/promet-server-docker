@@ -7,7 +7,7 @@ build_image:
 
 update_remote:
   script:
-    - echo ~/.ssh/id_rsa.pub
+    - cat ~/.ssh/id_rsa.pub
 #    - echo "machine github.com" > ~/.netrc
 #    - echo "        login $" >> ~/.netrc
 #    - echo "machine github.com" >> ~/.netrc
