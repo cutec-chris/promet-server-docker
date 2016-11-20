@@ -11,6 +11,7 @@ update_remote:
     - echo "        login $" >> ~/.netrc
     - echo "machine github.com" >> ~/.netrc
     - cd $HOME
+    - rm -rf promet-client-docker.git    
     - git clone --bare http://192.168.177.120:10080/promet/promet-client-docker.git
     - cd promet-client-docker.git
     - git push --mirror https://cutec-chris@github.com/cutec-chris/promet-client-docker.git
