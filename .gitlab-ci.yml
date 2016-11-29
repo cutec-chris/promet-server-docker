@@ -7,7 +7,7 @@ build_image:
     - docker build -t promet-client .
 
 update_remote:
-  stage: upload
+  stage: test
   variables:
     REPO_NAME: "promet-client-docker"
   script:
