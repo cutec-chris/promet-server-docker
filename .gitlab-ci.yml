@@ -1,3 +1,7 @@
+stages:   
+  - build   
+  - upload   
+  - publish
 before_script:
   - docker info
 
@@ -7,7 +11,7 @@ build_image:
     - docker build -t promet-client .
 
 update_remote:
-  stage: test
+  stage: upload
   variables:
     REPO_NAME: "promet-client-docker"
   script:
@@ -20,6 +24,6 @@ update_remote:
     - rm -rf $REPO_NAME.git
 
 build_docker:
-  stage: deploy 
+  stage: publish 
   script:
     - curl -X POST https://registry.hub.docker.com/u/cutec/promet-client/trigger/e75e9bec-3207-4b33-82ad-99d1157902b7/
