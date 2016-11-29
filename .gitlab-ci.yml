@@ -18,7 +18,5 @@ update_remote:
     - rm -rf $REPO_NAME.git
 
 build_docker:
-  dependencies:     
-    - update_remote
   script:
     - curl -X POST https://registry.hub.docker.com/u/cutec/promet-client/trigger/e75e9bec-3207-4b33-82ad-99d1157902b7/
