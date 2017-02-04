@@ -13,7 +13,7 @@ build_image:
 update_remote:
   stage: upload
   variables:
-    REPO_NAME: "promet-client-docker"
+    REPO_NAME: "promet-server-docker"
   script:
     - cd $HOME
     - rm -rf $REPO_NAME.git    
