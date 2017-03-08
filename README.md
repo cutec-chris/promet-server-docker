@@ -2,7 +2,7 @@ A dockerized Variant of Promet-ERP
 ----------------------------------
  
 Persist Data
- docker run --publish 10088:8080 --volume /my-docker-data-dir/promet:/srv/promet promet-client 
+ docker run --publish 10088:8080 --volume /my-docker-data-dir/promet:/srv/promet promet-server 
  
  
 - [Introduction](#introduction)
@@ -60,7 +60,7 @@ Your docker host needs to have 300MB or more of available RAM to run Promet-ERP.
 
 # Installation
 
-Automated builds of the image are available on [Dockerhub](https://hub.docker.com/cutec/promet-client) and is the recommended method of installation.
+Automated builds of the image are available on [Dockerhub](https://hub.docker.com/cutec/promet-server) and is the recommended method of installation.
 
 ```bash
 docker pull cutec/promet-client:latest
@@ -77,7 +77,7 @@ docker build -t cutec/promet-client github.com/cutec-chris/promet-erp
 Step 1. Launch the promet container
 
 ```bash
-docker run --publish 10088:8080 cutec/promet-client
+docker run --publish 10088:8080 cutec/promet-server
 ```
 
 Point your browser to `http://localhost:10088` and go through the Mandant Wizard to create and Database and prefill it with an Profile.
@@ -105,7 +105,7 @@ Volumes can be mounted in docker by specifying the `-v` option in the docker run
 docker run --name promet-erp -d \
     --publish 10088:8080 \
     --volume /srv/docker/promet:/srv/promet \
-    cutec/promet-client:latest
+    cutec/promet-server:latest
 ```
 
 ## Database
@@ -132,7 +132,7 @@ We are now ready to start the GitLab application.
 docker run --name gitlab -d \
     --publish 10088:8080 \
     --volume /srv/docker/promet:/srv/promet \
-    cutec/promet-client:latest
+    cutec/promet-server:latest
 ```
 
 ##Configuration
@@ -165,7 +165,7 @@ Below is the complete list of available options that can be used to customize yo
 - **Step 1**: Update the docker image.
 
 ```bash
-docker pull cutec/promet-client:latest
+docker pull cutec/promet-server:latest
 ```
 
 - **Step 2**: Stop and remove the currently running image
@@ -178,7 +178,7 @@ docker rm promet-erp
 - **Step 4**: Start the image
 
 ```bash
-docker run --name promet-erp -d [OPTIONS] cutec/promet-client:latest
+docker run --name promet-erp -d [OPTIONS] cutec/promet-server:latest
 ```
 
 ## Shell Access
