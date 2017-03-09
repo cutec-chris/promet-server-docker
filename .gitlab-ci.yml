@@ -8,7 +8,7 @@ before_script:
 build_image:
   stage: build 
   script:
-    - docker build -t promet-client .
+    - docker build -t promet-server .
 
 update_remote:
   stage: upload
