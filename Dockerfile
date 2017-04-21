@@ -3,7 +3,7 @@ MAINTAINER Christian U. <info@cu-tec.de>
 # Installing packages
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install wget sqlite3 bsdiff libsane -y
-RUN wget http://downloads.free-erp.de/promet-erp-services_7.0.436_amd64-gtk2.deb --level=13422 && dpkg -i promet-erp-services_7.0.436_amd64-gtk2.deb && rm promet-erp-services_7.0.436_amd64-gtk2.deb
+RUN wget http://downloads.free-erp.de/promet-erp-services_7.0.436_amd64-gtk2.deb --level=23084 && dpkg -i promet-erp-services_7.0.436_amd64-gtk2.deb && rm promet-erp-services_7.0.436_amd64-gtk2.deb
 RUN apt-get clean && apt-get autoremove -y
 EXPOSE 8085
 VOLUME ["/usr/lib/promet-erp/web"]
