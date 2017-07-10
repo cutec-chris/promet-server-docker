@@ -2,7 +2,7 @@ A dockerized Variant of Promet-ERP
 ----------------------------------
  
 Persist Data
- docker run --publish 10088:8080 --volume /my-docker-data-dir/promet:/srv/promet promet-server 
+ docker run --publish 10088:8085 --volume /my-docker-data-dir/promet:/srv/promet promet-server 
  
  
 - [Introduction](#introduction)
@@ -22,54 +22,18 @@ Persist Data
 
 Dockerfile to run Promet-ERP [promet-ERP](http://www.free-erp.de) GUI Client from an container image.
 
-# Contributing
-
-If you find this image useful here's how you can help:
-
-- Send a Pull Request with your awesome new features and bug fixes
-- Be a part of the community and help resolve [Issues](https://github.com/cutec-chris/promet-erp/issues)
-
-# Issues
-
-Docker is a relatively new project and is active being developed and tested by a thriving community of developers and testers and every release of docker features many enhancements and bugfixes.
-
-Given the nature of the development and release cycle it is very important that you have the latest version of docker installed because any issue that you encounter might have already been fixed with a newer docker release.
-
-Install the most recent version of the Docker Engine for your platform using the [official Docker releases](http://docs.docker.com/engine/installation/), which can also be installed using:
-
-```bash
-wget -qO- https://get.docker.com/ | sh
-```
-
-Fedora and RHEL/CentOS users should try disabling selinux with `setenforce 0` and check if resolves the issue. If it does than there is not much that I can help you with. You can either stick with selinux disabled (not recommended by redhat) or switch to using ubuntu.
-
-You may also set `DEBUG=true` to enable debugging of the entrypoint script, which could help you pin point any configuration issues.
-
-If using the latest docker version and/or disabling selinux does not fix the issue then please file a issue request on the [issues](https://github.com/sameersbn/docker-gitlab/issues) page.
-
-In your issue report please make sure you provide the following information:
-
-- The host distribution and release version.
-- Output of the `docker version` command
-- Output of the `docker info` command
-- The `docker run` command you used to run the image (mask out the sensitive bits).
-
-# Prerequisites
-
-Your docker host needs to have 300MB or more of available RAM to run Promet-ERP.
-
 # Installation
 
 Automated builds of the image are available on [Dockerhub](https://hub.docker.com/cutec/promet-server) and is the recommended method of installation.
 
 ```bash
-docker pull cutec/promet-client:latest
+docker pull cutec/promet-server:latest
 ```
 
 Alternatively you can build the image locally.
 
 ```bash
-docker build -t cutec/promet-client github.com/cutec-chris/promet-erp
+docker build -t cutec/promet-server github.com/cutec-chris/promet-server-docker
 ```
 
 # Quick Start
@@ -77,7 +41,7 @@ docker build -t cutec/promet-client github.com/cutec-chris/promet-erp
 Step 1. Launch the promet container
 
 ```bash
-docker run --publish 10088:8080 cutec/promet-server
+docker run --publish 10088:8085 cutec/promet-server
 ```
 
 Point your browser to `http://localhost:10088` and go through the Mandant Wizard to create and Database and prefill it with an Profile.
@@ -123,42 +87,7 @@ CREATE ROLE promet with LOGIN CREATEDB PASSWORD 'password';
 CREATE DATABASE promet_production;
 GRANT ALL PRIVILEGES ON DATABASE promet_production to promet;
 ```
-
-We are now ready to start the GitLab application.
-
-*Assuming that the PostgreSQL server host is 192.168.1.100*
-
-```bash
-docker run --name gitlab -d \
-    --publish 10088:8080 \
-    --volume /srv/docker/promet:/srv/promet \
-    cutec/promet-server:latest
-```
-
-##Configuration
-
-### Available Configuration Parameters
-
-*Please refer the docker run command options for the `--env-file` flag where you can specify all required environment variables in a single file. This will save you from writing a potentially long docker run command. Alternatively you can use docker-compose.*
-
-Below is the complete list of available options that can be used to customize your gitlab installation.
-
-| Parameter | Description |
-|-----------|-------------|
-| `DB_ADAPTER` | The database type. Possible values: `mysql2`, `postgresql`. Defaults to `postgresql`. |
-| `DB_ENCODING` | The database encoding. For `DB_ADAPTER` values `postresql` and `mysql2`, this parameter defaults to `unicode` and `utf8` respectively. |
-| `DB_HOST` | The database server hostname. Defaults to `localhost`. |
-| `DB_PORT` | The database server port. Defaults to `3306` for mysql and `5432` for postgresql. |
-| `DB_NAME` | The database database name. Defaults to `gitlabhq_production` |
-| `DB_USER` | The database database user. Defaults to `root` |
-| `DB_PASS` | The database database password. Defaults to no password |
-| `DB_POOL` | The database database connection pool count. Defaults to `10`. |
-
-# Maintenance
-
-## Creating backups
-
-## Restoring Backups
+The Webinterface will point you through the rest of the process.
 
 ## Upgrading
 
